@@ -1,0 +1,78 @@
+#overlay {
+  width: 100vw;
+  height: 100%;
+  z-index: 998;
+  position: absolute;
+  background: #19142A;
+  opacity: 0.6;
+  display: none;
+}
+
+#mobileNavbar {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  background: #2A2344;
+  z-index: 999;
+  width: 100vw;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap;
+  padding: 0;
+  left: 100vw;
+  -webkit-transition-duration: 0;
+          transition-duration: 0;
+  -webkit-transition-timing-function: ease-in-out;
+          transition-timing-function: ease-in-out;
+}
+
+#mobileNavbar.active {
+  left: 0;
+}
+
+#mobileNavbar #cross {
+  width: 20px;
+  height: 20px;
+  border: solid #ffff;
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  cursor: pointer;
+}
+
+#mobileNavbar .logo {
+  margin-top: 60px;
+  margin-bottom: 70px;
+  margin-left: 35px;
+}
+
+#mobileNavbar .logo h1 {
+  font-size: 27px;
+}
+
+#mobileNavbar ul {
+  font-family: 'Orbitron', sans-serif;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  margin-left: 30px;
+}
+
+#mobileNavbar ul li {
+  font-size: 25px;
+  margin-bottom: 25px;
+}
+
+@media only screen and (max-width: 1000px) {
+  #mobileNavbar {
+    -webkit-transition: left 400ms;
+    transition: left 400ms;
+  }
+  #mobileNavbar.active {
+    left: 40vw !important;
+  }
+}

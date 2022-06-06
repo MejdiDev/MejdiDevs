@@ -1,0 +1,134 @@
+@import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@500;600;700&display=swap");
+footer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row nowrap;
+          flex-flow: row nowrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 0 100px;
+  height: 100px;
+  background: #2A2344;
+  overflow-y: hidden;
+}
+
+footer .logo {
+  margin: 0;
+}
+
+footer #text {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row nowrap;
+          flex-flow: row nowrap;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: #ffff;
+  font-family: 'Orbitron';
+  font-weight: 500;
+}
+
+footer #text h2 {
+  margin-left: 20px;
+}
+
+footer #icons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row nowrap;
+          flex-flow: row nowrap;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+footer #icons a {
+  margin-right: 33px;
+}
+
+footer #icons a:last-child {
+  margin-right: 0;
+}
+
+footer #icons a img {
+  width: 23px !important;
+  height: 23px !important;
+}
+
+@media only screen and (max-width: 1056px) {
+  footer {
+    padding: 0 5vw;
+  }
+  footer h1, footer h2 {
+    font-size: 20px !important;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  footer {
+    padding: 0 2vw !important;
+    padding-top: 20px !important;
+  }
+  footer .logo h1 {
+    font-size: 18px !important;
+  }
+  footer #text {
+    -webkit-box-orient: horizontal !important;
+    -webkit-box-direction: normal !important;
+        -ms-flex-flow: row wrap !important;
+            flex-flow: row wrap !important;
+  }
+  footer #text h2 {
+    font-size: 16px !important;
+    margin-right: 10px !important;
+  }
+  footer #icons {
+    height: 100%;
+    margin-right: 20px;
+    margin-left: 20px;
+  }
+  footer #icons a {
+    margin-right: 3vw;
+  }
+}
+
+@media only screen and (max-width: 663.2px) {
+  footer #text .logo {
+    margin-bottom: 55px;
+  }
+  footer #text h2 {
+    position: absolute;
+    width: calc(100% - 3px);
+    margin-left: -8px;
+    text-align: center;
+    margin-top: 15px;
+    margin-bottom: -10px;
+  }
+  footer #icons {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+    height: 100% !important;
+    padding-top: 15px !important;
+  }
+}

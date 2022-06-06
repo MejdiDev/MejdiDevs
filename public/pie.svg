@@ -1,0 +1,16 @@
+<svg width="509" height="533" viewBox="0 0 509 533" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M106.444 190.845C90.9286 216.519 82 246.62 82 278.807C82 309.505 90.1223 338.307 104.335 363.18L254.579 276.536L106.444 190.845Z" fill="#7B61FF" fill-opacity="0.55"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M399.762 364.752C415.147 339.295 424 309.447 424 277.532C424 247.091 415.946 218.532 401.853 193.869L252.874 279.783L399.762 364.752Z" fill="#4C43CD" fill-opacity="0.5"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M79.935 379.022C97.2714 409.99 123.012 436.771 156.118 455.588C187.693 473.535 222.066 482.019 255.958 481.942L254.676 276.753L79.935 379.022Z" fill="#43A5E3" fill-opacity="0.8"/>
+<path class="pientry" fill-rule="evenodd" clip-rule="evenodd" d="M257.677 77.4895C222.656 76.5507 186.941 84.8542 154.261 103.427C123.092 121.141 98.535 146.007 81.4818 174.79L256.15 277.343L257.677 77.4895Z" fill="#FF7070" fill-opacity="0.7"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M255.271 426.106C281.648 426.633 308.501 420.197 333.016 406.044C356.397 392.544 374.763 373.693 387.457 351.93L255.396 275.597L255.271 426.106Z" fill="#FF7070" fill-opacity="0.5"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M470.095 154.037C449.334 116.357 418.351 83.6832 378.376 60.6035C340.248 38.5903 298.652 28.0255 257.568 27.8424L257.444 276.574L470.095 154.037Z" fill="#C4C4C4" fill-opacity="0.8"/>
+<line x1="256.08" y1="28.8043" x2="256.08" y2="527.471" stroke="#C5C5D0" stroke-width="3"/>
+<line x1="38.4963" y1="401.505" x2="470.354" y2="152.172" stroke="#C5C5D0" stroke-width="3"/>
+<line x1="39.9963" y1="152.172" x2="471.854" y2="401.505" stroke="#C5C5D0" stroke-width="3"/>
+<circle cx="254.58" cy="278.138" r="200" stroke="#C5C5D0" stroke-width="3"/>
+<circle cx="254.58" cy="278.138" r="50" stroke="#C5C5D0" stroke-width="3"/>
+<circle cx="254.58" cy="278.138" r="100" stroke="#C5C5D0" stroke-width="3"/>
+<circle cx="254.58" cy="278.138" r="150" stroke="#C5C5D0" stroke-width="3"/>
+<circle cx="254.58" cy="278.138" r="250" stroke="#393939" stroke-width="8"/>
+</svg>

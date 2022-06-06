@@ -1,0 +1,116 @@
+@import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Alata&display=swap");
+.logo {
+  font-family: 'Orbitron', sans-serif;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row nowrap;
+          flex-flow: row nowrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 145px;
+  cursor: pointer;
+}
+
+.logo h1 {
+  font-weight: 700;
+  font-size: 24px;
+  margin: 0;
+}
+
+.logo h1:first-child {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.logo h1:nth-child(2) {
+  color: #FFFFFF;
+}
+
+nav {
+  font-family: 'Orbitron', sans-serif;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row nowrap;
+          flex-flow: row nowrap;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  -webkit-user-select: none !important;
+     -moz-user-select: none !important;
+      -ms-user-select: none !important;
+          user-select: none !important;
+  z-index: 997;
+  margin-top: 50px;
+}
+
+nav ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row nowrap;
+          flex-flow: row nowrap;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: #ffffff;
+  font-family: 'Alata', sans-serif;
+  padding: 0;
+  margin: 0;
+}
+
+nav ul a {
+  margin-left: 6.9vw;
+  font-size: 20px;
+  line-height: 33px;
+}
+
+nav ul a:first-child {
+  margin: 0;
+}
+
+nav #mobileNav {
+  display: none;
+  width: 20px;
+  height: 20px;
+  margin-right: -20vw;
+  cursor: pointer;
+}
+
+nav #mobileNav div {
+  width: 100%;
+  border: solid #ffff;
+  margin-bottom: 4.3px;
+}
+
+@media only screen and (max-width: 1000px) {
+  nav {
+    margin-top: 25px;
+  }
+  nav ul {
+    display: none;
+  }
+  nav .logo {
+    margin-left: -20vw;
+  }
+  nav #mobileNav {
+    display: block;
+  }
+}
