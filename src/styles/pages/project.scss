@@ -1,0 +1,217 @@
+@import url("https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600&display=swap");
+
+body {
+	background: #19142A;
+	padding: 0;
+	margin: 0;
+	width: 100%;
+	overflow-x: hidden;
+}
+
+#root {
+	position: relative;
+	overflow-x: hidden;
+}
+
+* {
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0) !important;
+}
+
+a {
+	text-decoration: none;
+	color: #ffffff;
+}
+
+ul {
+	list-style-type: none;
+}
+
+#appWrapper {
+    .radialButton {
+        font-family: 'Orbitron', sans-serif;
+        font-size: 24px;
+        width: 252px;
+        height: 60px;
+    }
+
+    #mobileNavbar {
+        margin-top: -55px;
+    }
+    
+    footer {
+        margin-top: 100px;
+    }
+    
+    .swiper {
+        width: 80%;
+        height: 40vw;
+    
+        margin-top: 90px;
+        display: flex;
+        justify-content: center;
+    
+        .swiper-slide {
+            user-select: none;
+            display: flex;
+            justify-content: center;
+    
+            div {
+                height: 100%;
+                width: 90%;
+                background-repeat: no-repeat;
+                background-position: top;
+                background-size: cover;
+            }
+        }
+    
+        .swiper-button-next {
+            width: 35px;
+            height: 35px;
+            color: transparent;
+            background-image: url("../assets/prevArrow.svg") !important;
+        }
+    
+        .swiper-button-prev {
+            width: 35px;
+            height: 35px;
+            color: transparent;
+            background-image: url("../assets/nextArrow.svg") !important;
+        }
+    }
+    
+    #detailsWrapper {
+        display: flex;
+        justify-content: center;
+    
+        #details {
+            width: 80%;
+            font-family: 'Rajdhani';
+            color: #FFFFFF;
+    
+            #title {
+                font-weight: 700;
+                font-size: 64px;
+            }
+    
+            p {
+                font-weight: 500;
+                font-size: 24px;
+            }
+    
+            h2 {
+                font-weight: 700;
+                font-size: 45px;
+            }
+    
+            #smImgWrapper {
+                display: flex;
+                gap: 50px;
+                div {
+                    height: 316px;
+                    background-repeat: no-repeat;
+                    background-size: cover;
+                    background-position: top;
+                    &:first-child {
+                        width: 527px;
+                    }
+                    &:nth-child(2) {
+                        width: 558px;
+                    }
+                }
+            }
+        }
+    }
+    
+    #buttonsWrapper {
+        width: 100%;
+        margin-top: 50px;
+        button {
+            &:first-child {
+                margin-right: 62px;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 1200px) {
+    #appWrapper {
+        .swiper {
+            width: 90% !important;
+            height: 60vw !important;
+        }
+    
+        #detailsWrapper {
+            #details {
+                #smImgWrapper {
+                    gap: 20px !important;
+                    flex-flow: column nowrap !important;
+                    div {
+                        width: 100% !important;
+                        height: 55vw;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 950px) {
+    #appWrapper {
+        .swiper {
+            .swiper-slide {
+                div {
+                    width: 100% !important;
+                }
+            }
+        }
+    
+        #detailsWrapper {
+            display: flex;
+            justify-content: center;
+            #details {
+                width: 90%;
+                #title {
+                    font-size: 40px !important;
+                }
+                p {
+                    font-size: 19px !important;
+                }
+                h2 {
+                    font-size: 30px !important;
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 670px) {
+    #appWrapper {
+        .swiper {
+            width: 95% !important;
+            .swiper-button-next {
+                display: none !important;
+            }
+            .swiper-button-prev {
+                display: none !important;
+            }
+        }
+    
+        #buttonsWrapper {
+            margin-top: 30px;
+            display: flex;
+            flex-wrap: nowrap;
+            justify-content: space-between;
+
+            button {
+                width: calc(40vw - 10px) !important;
+                height: 50px;
+                font-size: 18px;
+                margin: 0 !important;
+            }
+        }
+    
+        footer {
+            margin-top: 40px !important;
+        }
+    }
+}

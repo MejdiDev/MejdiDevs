@@ -3,11 +3,11 @@ import ReactDOM from 'react-dom';
 
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
-import Home from './home';
 import Project from './project';
+import Home from './home';
 
 const App = () => {
-    return(
+    return (
         <Router>
             <Routes>
                 <Route path="/" element={<Home />} />
@@ -16,6 +16,7 @@ const App = () => {
         </Router>
     );
 }
+
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(<App />);

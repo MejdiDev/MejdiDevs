@@ -25,37 +25,22 @@ ul {
   list-style-type: none;
 }
 
-.radialButton {
+#appWrapper .radialButton {
   font-family: 'Orbitron', sans-serif;
   font-size: 24px;
-  color: #ffffff;
   width: 252px;
   height: 60px;
-  -webkit-box-shadow: 4px 38px 62px rgba(0, 0, 0, 0.5);
-          box-shadow: 4px 38px 62px rgba(0, 0, 0, 0.5);
-  border-radius: 109px;
-  cursor: pointer !important;
-  background: transparent;
-  outline: 3px solid #3E37A8;
-  border: none;
-  -webkit-transition: background 400ms;
-  transition: background 400ms;
 }
 
-.radialButton.active, .radialButton:hover {
-  outline: none !important;
-  background: radial-gradient(92.09% 85.42% at 86.3% 87.5%, rgba(0, 0, 0, 0.23) 0%, rgba(0, 0, 0, 0) 86.18%), radial-gradient(65.28% 65.28% at 26.39% 20.83%, rgba(255, 255, 255, 0.413) 0%, rgba(255, 255, 255, 0) 69.79%, rgba(255, 255, 255, 0) 100%), #4C43CD !important;
-}
-
-#mobileNavbar {
+#appWrapper #mobileNavbar {
   margin-top: -55px;
 }
 
-footer {
+#appWrapper footer {
   margin-top: 100px;
 }
 
-.swiper {
+#appWrapper .swiper {
   width: 80%;
   height: 40vw;
   margin-top: 90px;
@@ -67,7 +52,7 @@ footer {
           justify-content: center;
 }
 
-.swiper .swiper-slide {
+#appWrapper .swiper .swiper-slide {
   -webkit-user-select: none;
      -moz-user-select: none;
       -ms-user-select: none;
@@ -80,7 +65,7 @@ footer {
           justify-content: center;
 }
 
-.swiper .swiper-slide div {
+#appWrapper .swiper .swiper-slide div {
   height: 100%;
   width: 90%;
   background-repeat: no-repeat;
@@ -88,21 +73,21 @@ footer {
   background-size: cover;
 }
 
-.swiper .swiper-button-next {
+#appWrapper .swiper .swiper-button-next {
   width: 35px;
   height: 35px;
   color: transparent;
   background-image: url("../assets/prevArrow.svg") !important;
 }
 
-.swiper .swiper-button-prev {
+#appWrapper .swiper .swiper-button-prev {
   width: 35px;
   height: 35px;
   color: transparent;
   background-image: url("../assets/nextArrow.svg") !important;
 }
 
-#detailsWrapper {
+#appWrapper #detailsWrapper {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -111,81 +96,81 @@ footer {
           justify-content: center;
 }
 
-#detailsWrapper #details {
+#appWrapper #detailsWrapper #details {
   width: 80%;
   font-family: 'Rajdhani';
   color: #FFFFFF;
 }
 
-#detailsWrapper #details #title {
+#appWrapper #detailsWrapper #details #title {
   font-weight: 700;
   font-size: 64px;
 }
 
-#detailsWrapper #details p {
+#appWrapper #detailsWrapper #details p {
   font-weight: 500;
   font-size: 24px;
 }
 
-#detailsWrapper #details h2 {
+#appWrapper #detailsWrapper #details h2 {
   font-weight: 700;
   font-size: 45px;
 }
 
-#detailsWrapper #details #smImgWrapper {
+#appWrapper #detailsWrapper #details #smImgWrapper {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   gap: 50px;
 }
 
-#detailsWrapper #details #smImgWrapper div {
+#appWrapper #detailsWrapper #details #smImgWrapper div {
   height: 316px;
   background-repeat: no-repeat;
   background-size: cover;
   background-position: top;
 }
 
-#detailsWrapper #details #smImgWrapper div:first-child {
+#appWrapper #detailsWrapper #details #smImgWrapper div:first-child {
   width: 527px;
 }
 
-#detailsWrapper #details #smImgWrapper div:nth-child(2) {
+#appWrapper #detailsWrapper #details #smImgWrapper div:nth-child(2) {
   width: 558px;
 }
 
-#buttonsWrapper {
+#appWrapper #buttonsWrapper {
   width: 100%;
   margin-top: 50px;
 }
 
-#buttonsWrapper button:first-child {
+#appWrapper #buttonsWrapper button:first-child {
   margin-right: 62px;
 }
 
 @media only screen and (max-width: 1200px) {
-  .swiper {
+  #appWrapper .swiper {
     width: 90% !important;
     height: 60vw !important;
   }
-  #detailsWrapper #details #smImgWrapper {
+  #appWrapper #detailsWrapper #details #smImgWrapper {
     gap: 20px !important;
     -webkit-box-orient: vertical !important;
     -webkit-box-direction: normal !important;
         -ms-flex-flow: column nowrap !important;
             flex-flow: column nowrap !important;
   }
-  #detailsWrapper #details #smImgWrapper div {
+  #appWrapper #detailsWrapper #details #smImgWrapper div {
     width: 100% !important;
     height: 55vw;
   }
 }
 
 @media only screen and (max-width: 950px) {
-  .swiper .swiper-slide div {
+  #appWrapper .swiper .swiper-slide div {
     width: 100% !important;
   }
-  #detailsWrapper {
+  #appWrapper #detailsWrapper {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -193,28 +178,31 @@ footer {
         -ms-flex-pack: center;
             justify-content: center;
   }
-  #detailsWrapper #details {
+  #appWrapper #detailsWrapper #details {
     width: 90%;
   }
-  #detailsWrapper #details #title {
+  #appWrapper #detailsWrapper #details #title {
     font-size: 40px !important;
   }
-  #detailsWrapper #details p {
+  #appWrapper #detailsWrapper #details p {
     font-size: 19px !important;
   }
-  #detailsWrapper #details h2 {
+  #appWrapper #detailsWrapper #details h2 {
     font-size: 30px !important;
   }
 }
 
 @media only screen and (max-width: 670px) {
-  .swiper {
+  #appWrapper .swiper {
     width: 95% !important;
   }
-  .swiper .swiper-button-next, .swiper .swiper-button-prev {
+  #appWrapper .swiper .swiper-button-next {
     display: none !important;
   }
-  #buttonsWrapper {
+  #appWrapper .swiper .swiper-button-prev {
+    display: none !important;
+  }
+  #appWrapper #buttonsWrapper {
     margin-top: 30px;
     display: -webkit-box;
     display: -ms-flexbox;
@@ -225,13 +213,13 @@ footer {
         -ms-flex-pack: justify;
             justify-content: space-between;
   }
-  #buttonsWrapper button {
-    width: calc(50% - 10px);
+  #appWrapper #buttonsWrapper button {
+    width: calc(40vw - 10px) !important;
     height: 50px;
     font-size: 18px;
     margin: 0 !important;
   }
-  footer {
+  #appWrapper footer {
     margin-top: 40px !important;
   }
 }

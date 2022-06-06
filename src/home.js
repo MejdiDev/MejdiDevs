@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import ReactDOM from 'react-dom/client';
 
 import './styles/pages/index.css';
+
 import { NavBar } from './components/navbar';
 import { MobileNavbar, hideMobileNav } from './components/mobileNavbar';
 import { Loader } from './components/loader';
@@ -202,7 +202,7 @@ export default function Home() {
     )
 
     return (
-        <div id="appWrapper">
+        <div id="homeAppWrapper">
             <div id="scroll">
                 <div id="track">
                     <div id="thumb"></div>
@@ -487,6 +487,8 @@ export default function Home() {
 
                         <div id="CarrWrapper">
                             <Swiper
+                                className='home'
+
                                 breakpoints={{
                                     1260: {
                                         slidesPerView: 3,
@@ -512,7 +514,7 @@ export default function Home() {
 
                                 {
                                     feedsShown.map((feedback, index) => 
-                                        <SwiperSlide key={"feedback-" + index}>
+                                        <SwiperSlide className='home' key={"feedback-" + index}>
                                             <FeedbackSlide
                                                 text={feedback.text}
                                                 author={feedback.author}
@@ -544,7 +546,7 @@ export default function Home() {
                                     value={firstName}
                                     onChange={e => setFirstName(e.target.value)}
 
-                                    src="./input-icons/User.svg"
+                                    src="./input-icons/user.svg"
                                     type="text"
                                     placeholder="First Name"
                                 />
