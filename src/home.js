@@ -40,7 +40,6 @@ const Label = props => {
 
 const JobEntry = props => {
     const openEntry = () => {
-        console.log(document.querySelector('[entrynum="' + props.entryNum + '"].jobEntry'));
         document.querySelector('[entrynum="' + props.entryNum + '"].jobEntry').classList.toggle('open');
     }
 
@@ -77,8 +76,7 @@ const JobEntry = props => {
 const FeedbackSlide = props => {
     return (
         <div className="feedbackWrapper">
-
-            <img id="quote" src="./quote.svg" alt="Quote" />
+           <img id="quote" src="./quote.svg" alt="Quote" />
             <h3 id="quoteText">{props.text}</h3>
 
             <div id="author">
@@ -112,6 +110,7 @@ const CustomInput = props => {
 export default function Home() {
     const [skills, setSkills] = useState();
     const [jobs, setJobs] = useState();
+    const [projects, setProjects] = useState();
     const [feedbacks, setFeedbacks] = useState();
 
     const [ techsShown, setTechsShown ] = useState();
@@ -143,12 +142,100 @@ export default function Home() {
     const handleSubmit = e => {
         e.preventDefault();
 
+        document.getElementById("success").style.display = "none";
+
+        if(firstName.trim() === "" || lastName.trim() === "" || email.trim() === "" || msg.trim() === "") {
+            document.getElementById("error").innerText = "All areas must be filled !"
+            document.getElementById("error").style.display = "flex";
+            return
+        }
+
+        document.getElementById("error").style.display = "none";
+        document.getElementById("loaderOverlay").style.display = "flex";
+
         emailjs.send('service_ii4knd2', 'template_9mw8xoo', {
             name: (firstName + " " + lastName),
             from_email: email,
             msg,
-        }, 'user_umz4PoLI7NcoxEC2FAxIC')
+        }, 'user_umz4PoLI7NcoxEC2FAxIC').then(data => {
+            document.getElementById("loaderOverlay").style.display = "none";
+            
+            if(data.status !== 200) {
+                document.getElementById("error").innerText = "An error occured, try later !"
+                document.getElementById("error").style.display = "flex";
+                return
+            }
+            
+            setFirstName("")
+            setLastName("")
+            setEmail("")
+            setMsg("")
+            document.getElementById("success").style.display = "flex";
+        })
     }
+
+    const countUp = (countTo, cellElement, numPosition, delay) => {
+        const text = cellElement.innerText;
+        const beforeText = text.substring(0, numPosition);
+        const afterText = text.substring(numPosition + 1, text.length + 1);
+
+        let i = 2;
+        cellElement.innerText = beforeText + 1 + afterText;
+
+        const increment = () => setTimeout(() => {
+            cellElement.innerText = beforeText + i + afterText;
+
+            i++;
+            if(i <= countTo) increment()
+        }, delay);
+
+        increment();
+    }
+
+    const [cell1Ref, cell1InView] = useInView({ threshold: 1 });
+    const [cell1Counted, setCell1Counted] = useState(false);
+
+    const [cell2Ref, cell2InView] = useInView({ threshold: 1 });
+    const [cell2Counted, setCell2Counted] = useState(false);
+
+    const [cell3Ref, cell3InView] = useInView({ threshold: 1 });
+    const [cell3Counted, setCell3Counted] = useState(false);
+
+    useEffect(() => {
+        if(cell1InView && !cell1Counted) {
+            setCell1Counted(true);
+            countUp(
+                21,
+                document.querySelector('.restCell:first-child h3'),
+                0,
+                70
+            );
+        }
+    }, [cell1InView]);
+
+    useEffect(() => {
+        if(cell2InView && !cell2Counted) {
+            setCell2Counted(true);
+            countUp(
+                15,
+                document.querySelector('.restCell:nth-child(2) h3'),
+                0,
+                70
+            );
+        }
+    }, [cell2InView]);
+
+    useEffect(() => {
+        if(cell3InView && !cell3Counted) {
+            setCell3Counted(true);
+            countUp(
+                2,
+                document.querySelector('.restCell:nth-child(3) h3'),
+                1,
+                300
+            );
+        }
+    }, [cell3InView]);
 
     const [ chartRef, chartInView ] = useInView({ threshold: 0.8 });
     const [ skillsRef, skillsInView ] = useInView({ threshold: 0.95 });
@@ -168,6 +255,7 @@ export default function Home() {
     useEffect(() => {
         const skillsCollection = collection(db, 'Skills');
         const jobsCollection = collection(db, 'Technologies');
+        const projectsCollection = collection(db, 'HomeProjects');
         const feedbacksCollection = collection(db, 'Feedbacks');
 
         getDocs(skillsCollection)
@@ -184,6 +272,11 @@ export default function Home() {
             data => setJobs(data.docs.map(doc => doc.data()))
         );
 
+        getDocs(projectsCollection)
+        .then(
+            data => setProjects(data.docs.map(doc => doc.data())[0].projects)
+        );
+
         getDocs(feedbacksCollection)
         .then(
             data => {
@@ -197,12 +290,26 @@ export default function Home() {
         );
     }, []);
 
-    if(typeof(jobs) === 'undefined' || typeof(feedbacks) === 'undefined' || typeof(skills) === 'undefined') return (
-        <Loader />
-    )
+    let loaded = false;
+
+    const scrollOnLoad = () => {
+        if(loaded) return;
+        const section = sessionStorage.getItem('navTo');
+
+        if(!section) return;
+        if(!document.getElementById(section)) return;
+
+        document.getElementById(section).scrollIntoView();
+        sessionStorage.clear();
+
+        loaded = true;
+    }
+
+    if(typeof(jobs) === 'undefined' || typeof(feedbacks) === 'undefined' || typeof(skills) === 'undefined' || typeof(projects) === 'undefined')
+    return <Loader />
 
     return (
-        <div id="homeAppWrapper">
+        <div id="homeAppWrapper" onLoad={scrollOnLoad}>
             <div id="scroll">
                 <div id="track">
                     <div id="thumb"></div>
@@ -236,11 +343,11 @@ export default function Home() {
             </div>
 
             <div id="overlay" onClick={hideMobileNav}></div>
-            <MobileNavbar />
+            <MobileNavbar isHome={true} />
 
             <section id="home">
 
-                <NavBar />
+                <NavBar isHome={true} />
 
                 <div id="body">
                     <div id="face">
@@ -285,20 +392,19 @@ export default function Home() {
 
                     <VisibilitySensor partialVisibility='top' minTopValue={200} onChange={isVisible => changeThumbPos(isVisible, 24.5)} >
                         <div id="rest">
-                            <div className="restCell">
+                            <div ref={cell1Ref} className="restCell">
                                 <BsAward className="icon" />
-                                <h3>05</h3>
-                                <h3>Awards</h3>
+                                <h3>0 Projects <br/> Completed</h3>
                             </div>
 
-                            <div className="restCell">
+                            <div ref={cell2Ref} className="restCell">
                                 <BsFillPersonFill className="icon" />
-                                <h3>15 Satisfied <br/> Clients</h3>
+                                <h3>0 Satisfied <br/> Clients</h3>
                             </div>
 
-                            <div className="restCell">
+                            <div ref={cell3Ref} className="restCell">
                                 <FaReact className="icon" />
-                                <h3>+2 Years <br/> Experience</h3>
+                                <h3>+0 Years <br/> Experience</h3>
                             </div>
                         </div>
                     </VisibilitySensor>
@@ -317,29 +423,29 @@ export default function Home() {
 
                             <div id="chartWrapper">
                                 <h1>Graphic Design</h1>
-                                <h1>Communication</h1>
-                                <h1>Teaching</h1>
+                                <h1>Soft Skills</h1>
+                                <h1>Back-End Dev</h1>
                                 <h1>Internet Of Things</h1>
-                                <h1>UI Design</h1>
+                                <h1>Mobile Development</h1>
                                 <h1>Web Development</h1>
 
                                 <svg id="pieChart" ref={chartRef} width="509" height="509" viewBox="0 0 509 533" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path className="pieSection" fillRule="evenodd" clipRule="evenodd" d="M106.444 190.845C90.9286 216.519 82 246.62 82 278.807C82 309.505 90.1223 338.307 104.335 363.18L254.579 276.536L106.444 190.845Z" fill="#7B61FF" fillOpacity="0.55"/>
-                                    <path className="pieSection" fillRule="evenodd" clipRule="evenodd" d="M399.762 364.752C415.147 339.295 424 309.447 424 277.532C424 247.091 415.946 218.532 401.853 193.869L252.874 279.783L399.762 364.752Z" fill="#4C43CD" fillOpacity="0.5"/>
-                                    <path className="pieSection" fillRule="evenodd" clipRule="evenodd" d="M79.935 379.022C97.2714 409.99 123.012 436.771 156.118 455.588C187.693 473.535 222.066 482.019 255.958 481.942L254.676 276.753L79.935 379.022Z" fill="#43A5E3" fillOpacity="0.8"/>
-                                    <path className="pieSection" fillRule="evenodd" clipRule="evenodd" d="M257.677 77.4895C222.656 76.5507 186.941 84.8542 154.261 103.427C123.092 121.141 98.535 146.007 81.4818 174.79L256.15 277.343L257.677 77.4895Z" fill="#FF7070" fillOpacity="0.7"/>
-                                    <path className="pieSection" fillRule="evenodd" clipRule="evenodd" d="M255.271 426.106C281.648 426.633 308.501 420.197 333.016 406.044C356.397 392.544 374.763 373.693 387.457 351.93L255.396 275.597L255.271 426.106Z" fill="#FF7070" fillOpacity="0.5"/>
-                                    <path className="pieSection" fillRule="evenodd" clipRule="evenodd" d="M470.095 154.037C449.334 116.357 418.351 83.6832 378.376 60.6035C340.248 38.5903 298.652 28.0255 257.568 27.8424L257.444 276.574L470.095 154.037Z" fill="#C4C4C4" fillOpacity="0.8"/>
+                                    <path className="pieSection" fill-rule="evenodd" clip-rule="evenodd" d="M105.864 166.743C90.349 192.417 81.4204 222.518 81.4204 254.705C81.4204 285.403 89.5427 314.205 103.755 339.078L254 252.434L105.864 166.743Z" fill="#7B61FF" fill-opacity="0.55"/>
+                                    <path className="pieSection" fill-rule="evenodd" clip-rule="evenodd" d="M409.52 344.052C425.081 317.469 434 286.526 434 253.5C434 220.672 425.187 189.902 409.799 163.427L253.294 253.681L409.52 344.052Z" fill="#308021"/>
+                                    <path className="pieSection" fill-rule="evenodd" clip-rule="evenodd" d="M71.3035 359.633C89.2966 391.422 115.851 418.906 149.916 438.269C183.275 457.229 219.64 466.017 255.427 465.618L254.096 252.651L71.3035 359.633Z" fill="#43A5E3" fill-opacity="0.8"/>
+                                    <path className="pieSection" fill-rule="evenodd" clip-rule="evenodd" d="M257.021 63.2741C224.365 62.8836 191.175 70.8871 160.733 88.1878C130.854 105.168 107.315 129.007 90.9703 156.6L255.57 253.241L257.021 63.2741Z" fill="#FF7070" fill-opacity="0.7"/>
+                                    <path className="pieSection" fill-rule="evenodd" clip-rule="evenodd" d="M254.666 432.025C284.387 431.785 314.455 424.084 342.033 408.162C371.039 391.415 393.546 367.736 408.67 340.424L254.816 251.495L254.666 432.025Z" fill="#FF7070" fill-opacity="0.5"/>
+                                    <path className="pieSection" fill-rule="evenodd" clip-rule="evenodd" d="M394.878 172.69C381.095 148.296 360.81 127.155 334.79 112.132C310.138 97.8996 283.304 90.8706 256.725 90.3921L256.645 252.345L394.878 172.69Z" fill="#C4C4C4" fill-opacity="0.8"/>
                                     
-                                    <line x1="256.08" y1="28.8043" x2="256.08" y2="527.471" stroke="#C5C5D0" strokeWidth="3"/>
-                                    <line x1="38.4963" y1="401.505" x2="470.354" y2="152.172" stroke="#C5C5D0" strokeWidth="3"/>
-                                    <line x1="39.9963" y1="152.172" x2="471.854" y2="401.505" stroke="#C5C5D0" strokeWidth="3"/>
+                                    <line x1="255.5" y1="4.70227" x2="255.5" y2="503.369" stroke="#C5C5D0" stroke-width="3"/>
+                                    <line x1="37.917" y1="377.403" x2="469.775" y2="128.07" stroke="#C5C5D0" stroke-width="3"/>
+                                    <line x1="39.417" y1="128.07" x2="471.275" y2="377.403" stroke="#C5C5D0" stroke-width="3"/>
 
-                                    <circle cx="254.58" cy="278.138" r="200" stroke="#C5C5D0" strokeWidth="3"/>
-                                    <circle cx="254.58" cy="278.138" r="50" stroke="#C5C5D0" strokeWidth="3"/>
-                                    <circle cx="254.58" cy="278.138" r="100" stroke="#C5C5D0" strokeWidth="3"/>
-                                    <circle cx="254.58" cy="278.138" r="150" stroke="#C5C5D0" strokeWidth="3"/>
-                                    <circle cx="254.58" cy="278.138" r="250" stroke="#393939" strokeWidth="8"/>
+                                    <circle cx="254" cy="254.036" r="200" stroke="#C5C5D0" stroke-width="3"/>
+                                    <circle cx="254" cy="254.036" r="50" stroke="#C5C5D0" stroke-width="3"/>
+                                    <circle cx="254" cy="254.036" r="100" stroke="#C5C5D0" stroke-width="3"/>
+                                    <circle cx="254" cy="254.036" r="150" stroke="#C5C5D0" stroke-width="3"/>
+                                    <circle cx="254" cy="254.036" r="250" stroke="#393939" stroke-width="8"/>
                                 </svg>
 
                                 <div id="keys">
@@ -452,13 +558,34 @@ export default function Home() {
 
                         <div id="presWrapper">
                             <div id="presentation">
-                                <div onClick={() => window.location.href = '/project/?id=someId'}></div>
-                                <div onClick={() => window.location.href = '/project/?id=devfinder'}></div>
-                                <div onClick={() => window.location.href = '/project/?id=someId'}></div>
-                                <div onClick={() => window.location.href = '/project/?id=someId'}></div>
-                                <div onClick={() => window.location.href = '/project/?id=someId'}></div>
-                                <div onClick={() => window.location.href = '/project/?id=someId'}></div>
-                                <div onClick={() => window.location.href = '/project/?id=someId'}></div>
+                                <div
+                                    onClick={() => window.location.href = '/project?id=someId'}
+                                ></div>
+                                
+                                <div
+                                    onClick={() => window.location.href = '/project?id=devfinder'}
+                                ></div>
+
+                                <div
+                                    onClick={() => window.location.href = '/project?id=someId'}
+                                ></div>
+
+                                <div
+                                    onClick={() => window.location.href = '/project?id=someId'}
+                                ></div>
+
+                                <div
+                                    onClick={() => window.location.href = '/project?id=someId'}
+                                ></div>
+
+                                <div
+                                    onClick={() => window.location.href = '/project?id=someId'}
+                                ></div>
+
+                                <div
+                                    onClick={() => window.location.href = '/project?id=someId'}
+                                ></div>
+
                             </div>
                         </div>
 
@@ -513,8 +640,8 @@ export default function Home() {
                             >
 
                                 {
-                                    feedsShown.map((feedback, index) => 
-                                        <SwiperSlide className='home' key={"feedback-" + index}>
+                                    feedbacks.Clients.map((feedback, index) =>
+                                        <SwiperSlide key={"feedback-" + index}>
                                             <FeedbackSlide
                                                 text={feedback.text}
                                                 author={feedback.author}
@@ -540,7 +667,6 @@ export default function Home() {
                         <h1>Get in Touch With Me!</h1>
 
                         <form onSubmit={handleSubmit}>
-
                             <div id="nameWrapper">
                                 <CustomInput
                                     value={firstName}
@@ -583,6 +709,13 @@ export default function Home() {
                                 </textarea>
                             </div>
 
+                            <div id="loaderOverlay">
+                                <Loader />
+                            </div>
+
+                            <div id="success">Message Sent, Thank you !</div>
+                            <div id="error"></div>
+
                             <div id="bottomRow">
                                 <input type="submit" value="Send" className="radialButton active" />
 
@@ -601,7 +734,6 @@ export default function Home() {
                                 </div>
                             </div>
                         </form>
-
                     </section>
                 </VisibilitySensor>
 

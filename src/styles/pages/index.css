@@ -1,7 +1,3 @@
-@import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@500;600;700&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Rubik:wght@400;700&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=DM+Sans&display=swap");
 @font-face {
   font-family: "Spartan";
   src: url("../fonts/Spartan-SemiBold.ttf");
@@ -12,6 +8,53 @@
   font-family: "Spartan";
   src: url("../fonts/Spartan-Medium.ttf");
   font-weight: 500;
+}
+
+@font-face {
+  font-family: "Orbitron";
+  src: url("../fonts/Orbitron-Medium.ttf");
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: "Orbitron";
+  src: url("../fonts/Orbitron-SemiBold.ttf");
+  font-weight: 600;
+}
+
+@font-face {
+  font-family: "Orbitron";
+  src: url("../fonts/Orbitron-Bold.ttf");
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: "Rajdhani";
+  src: url("../fonts/Rajdhani-Regular.ttf");
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: "Rajdhani";
+  src: url("../fonts/Rajdhani-SemiBold.ttf");
+  font-weight: 600;
+}
+
+@font-face {
+  font-family: "Rubik";
+  src: url("../fonts/Rubik-Regular.ttf");
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "Rubik";
+  src: url("../fonts/Rubik-Bold.ttf");
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: "DM Sans";
+  src: url("../fonts/DMSans-Regular.ttf");
 }
 
 ::-webkit-scrollbar {
@@ -191,8 +234,13 @@ body {
   background: #19142A;
   padding: 0;
   margin: 0;
-  width: 100vw;
+  width: 100%;
   overflow-x: hidden;
+  overflow-y: visible;
+}
+
+body.hidden {
+  overflow-y: visible;
 }
 
 #root {
@@ -585,18 +633,22 @@ body {
   position: absolute;
 }
 
+#skillsSection #main #chartWrapper h1:first-child {
+  margin-left: 60px;
+}
+
 #skillsSection #main #chartWrapper h1:nth-child(2) {
-  margin-left: 200px;
-  margin-top: -470px;
+  margin-left: 240px;
+  margin-top: -450px;
 }
 
 #skillsSection #main #chartWrapper h1:nth-child(3) {
-  margin-left: 756px;
-  margin-top: -470px;
+  margin-left: 740px;
+  margin-top: -450px;
 }
 
 #skillsSection #main #chartWrapper h1:nth-child(5) {
-  margin-left: 780px;
+  margin-left: 770px;
   margin-top: 480px;
 }
 
@@ -606,7 +658,7 @@ body {
 }
 
 #skillsSection #main #chartWrapper h1:nth-child(4) {
-  margin-left: 884.58px;
+  margin-left: 880px;
 }
 
 #skillsSection #main #chartWrapper #keys {
@@ -707,8 +759,8 @@ body {
 }
 
 #skillsSection #main #chartWrapper svg .pieSection {
-  -webkit-transform-origin: 50% 52%;
-          transform-origin: 50% 52%;
+  -webkit-transform-origin: 50% 47%;
+          transform-origin: 50% 47%;
   -webkit-transform: scale(0);
           transform: scale(0);
 }
@@ -719,23 +771,23 @@ body {
 }
 
 #skillsSection #main #chartWrapper svg.active .pieSection:nth-child(2) {
+  -webkit-animation-delay: .3s;
+          animation-delay: .3s;
+}
+
+#skillsSection #main #chartWrapper svg.active .pieSection:nth-child(3) {
   -webkit-animation-delay: .4s;
           animation-delay: .4s;
 }
 
-#skillsSection #main #chartWrapper svg.active .pieSection:nth-child(3) {
-  -webkit-animation-delay: .7s;
-          animation-delay: .7s;
-}
-
 #skillsSection #main #chartWrapper svg.active .pieSection:nth-child(4) {
-  -webkit-animation-delay: .8s;
-          animation-delay: .8s;
+  -webkit-animation-delay: .6s;
+          animation-delay: .6s;
 }
 
 #skillsSection #main #chartWrapper svg.active .pieSection:nth-child(5) {
-  -webkit-animation-delay: 1.1s;
-          animation-delay: 1.1s;
+  -webkit-animation-delay: .7s;
+          animation-delay: .7s;
 }
 
 #skillsSection #detailsWrapper {
@@ -1188,15 +1240,15 @@ body {
   cursor: pointer;
   border-radius: 25px;
   width: 425px;
+  -webkit-backdrop-filter: blur(42px);
+          backdrop-filter: blur(42px);
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0.55%, rgba(255, 255, 255, 0.4)), to(rgba(255, 255, 255, 0)));
   background: linear-gradient(180deg, rgba(255, 255, 255, 0.4) 0.55%, rgba(255, 255, 255, 0) 100%);
-  -webkit-backdrop-filter: blur(10px);
-          backdrop-filter: blur(10px);
 }
 
 #FeedbackSection #CarrWrapper .swiper-slide .feedbackWrapper {
   height: 100%;
-  width: calc(100% - 5px);
+  width: calc(100% - 3px);
   border-radius: 25px;
   border: solid #ffff;
   display: -webkit-box;
@@ -1222,6 +1274,7 @@ body {
   font-weight: 500;
   font-size: 14px;
   line-height: 20px;
+  width: 94%;
 }
 
 #FeedbackSection #CarrWrapper .swiper-slide .feedbackWrapper #author {
@@ -1296,6 +1349,49 @@ body {
   width: 671px;
   margin-left: 192px;
   padding-bottom: 80px;
+}
+
+#ContactSection form #loaderOverlay {
+  width: 671px;
+  height: 398px;
+  margin-top: -453px;
+  position: absolute;
+  background: #19142A;
+  opacity: 0.85;
+  border-radius: 10px;
+  display: none;
+}
+
+#ContactSection form #loaderOverlay #loading {
+  height: 100%;
+}
+
+#ContactSection form #success, #ContactSection form #error {
+  display: none;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row nowrap;
+          flex-flow: row nowrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  height: 55px;
+  border-radius: 10px;
+  color: #ffff;
+  font-family: 'Rajdhani';
+  font-weight: 600;
+  font-size: 30px;
+  margin-top: -25px;
+  margin-bottom: -30px;
+  background: radial-gradient(92.09% 85.42% at 86.3% 87.5%, rgba(0, 0, 0, 0.23) 0%, rgba(0, 0, 0, 0) 86.18%), radial-gradient(65.28% 65.28% at 26.39% 20.83%, rgba(255, 255, 255, 0.413) 0%, rgba(255, 255, 255, 0) 69.79%, rgba(255, 255, 255, 0) 100%), #029634;
+}
+
+#ContactSection form #error {
+  background: radial-gradient(92.09% 85.42% at 86.3% 87.5%, rgba(0, 0, 0, 0.23) 0%, rgba(0, 0, 0, 0) 86.18%), radial-gradient(65.28% 65.28% at 26.39% 20.83%, rgba(255, 255, 255, 0.413) 0%, rgba(255, 255, 255, 0) 69.79%, rgba(255, 255, 255, 0) 100%), #CD0E0E;
 }
 
 #ContactSection form #nameWrapper {
@@ -1604,7 +1700,7 @@ footer {
     margin-left: -165px;
   }
   #skillsSection #detailsWrapper .label {
-    margin-bottom: 40px;
+    margin-bottom: 10px;
   }
   #skillsSection #detailsWrapper .label #labelWrapper {
     width: 190px !important;
@@ -1620,6 +1716,7 @@ footer {
         -ms-flex-pack: justify !important;
             justify-content: space-between !important;
     width: 90vw !important;
+    margin-left: 5.5vw !important;
   }
   #skillsSection #detailsWrapper #details #selector button {
     width: calc(50% - 15px);
@@ -1645,6 +1742,7 @@ footer {
   }
   #experienceSection #jobsWrapper {
     margin-top: 50px !important;
+    margin-bottom: -40px;
   }
   #experienceSection #jobsWrapper .jobEntry {
     height: 60px;
@@ -1751,13 +1849,16 @@ footer {
   #skillsSection #chartWrapper h1 {
     font-size: 20px;
   }
+  #skillsSection #chartWrapper h1:first-child {
+    margin: 0 !important;
+  }
   #skillsSection #chartWrapper h1:nth-child(2) {
-    margin-left: 130px !important;
-    margin-top: -390px !important;
+    margin-left: 150px !important;
+    margin-top: -350px !important;
   }
   #skillsSection #chartWrapper h1:nth-child(3) {
-    margin-left: 500px !important;
-    margin-top: -390px !important;
+    margin-left: 520px !important;
+    margin-top: -350px !important;
   }
   #skillsSection #chartWrapper h1:nth-child(5) {
     margin-left: 500px !important;
@@ -1798,7 +1899,13 @@ footer {
 }
 
 @media only screen and (max-width: 1056px) {
-  #skillsSection #chartWrapper {
+  #skillsSection #main {
+    margin-bottom: 10px !important;
+  }
+  #skillsSection #main .label {
+    margin-bottom: -30px !important;
+  }
+  #skillsSection #main #chartWrapper {
     -webkit-box-orient: vertical !important;
     -webkit-box-direction: normal !important;
         -ms-flex-flow: column nowrap !important;
@@ -1806,17 +1913,17 @@ footer {
     width: 100vw !important;
     margin-left: 0 !important;
   }
-  #skillsSection #chartWrapper h1 {
+  #skillsSection #main #chartWrapper svg {
+    width: 90vw !important;
+    margin-left: 0 !important;
+  }
+  #skillsSection #main #chartWrapper h1 {
     display: none !important;
   }
-  #skillsSection #chartWrapper #keys {
+  #skillsSection #main #chartWrapper #keys {
     display: -webkit-box !important;
     display: -ms-flexbox !important;
     display: flex !important;
-  }
-  #skillsSection #chartWrapper svg {
-    width: 90vw !important;
-    margin-left: 0 !important;
   }
   #ContactSection h1 {
     margin-left: 18vw;
@@ -1825,6 +1932,9 @@ footer {
   #ContactSection form {
     width: 63.5vw;
     margin-left: 18vw;
+  }
+  #ContactSection form #loaderOverlay {
+    width: 63.5vw;
   }
   #ContactSection form #bottomRow {
     width: 100%;
@@ -1843,6 +1953,15 @@ footer {
   #ContactSection form {
     width: 85vw;
     margin-left: 8vw;
+  }
+  #ContactSection form #loaderOverlay {
+    height: 418px;
+    margin-top: -444px;
+    width: 85vw;
+  }
+  #ContactSection form #succes, #ContactSection form #error {
+    margin-top: 15px;
+    margin-bottom: -35px;
   }
   #ContactSection form #nameWrapper {
     -webkit-box-orient: vertical;
@@ -1961,6 +2080,14 @@ footer {
 }
 
 @media only screen and (max-width: 663.2px) {
+  #ContactSection {
+    margin-bottom: 90px;
+  }
+  #ContactSection #success, #ContactSection #error {
+    margin-top: -5px !important;
+    margin-bottom: -15px !important;
+    font-size: 25px !important;
+  }
   #ContactSection #bottomRow {
     margin-top: 30px !important;
     -ms-flex-wrap: wrap !important;
@@ -2004,6 +2131,9 @@ footer {
 }
 
 @media only screen and (max-width: 1068px) {
+  #skillsSection #details #selector {
+    margin-left: 16vw !important;
+  }
   #skillsSection #details #selector button:first-child, #skillsSection #details #selector button:nth-child(2) {
     margin-bottom: 25px;
   }

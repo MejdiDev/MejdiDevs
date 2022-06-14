@@ -52,10 +52,10 @@ export default function Project() {
 
     return(
         <div id="appWrapper">
-            <NavBar />
+            <NavBar isHome={false} />
 
             <div id="overlay" onClick={hideMobileNav}></div>
-            <MobileNavbar />
+            <MobileNavbar isHome={false} />
 
             <Swiper
                 slidesPerView={1}
