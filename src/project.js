@@ -34,6 +34,7 @@ export default function Project() {
             if(projectData.length === 0) window.location.href = "/";
 
             setTimeout(() => setProject(projectData[0]) , 800);
+            document.title = `MejdiDevs | ${projectData[0].title}`;
         });
     }
 
@@ -76,7 +77,13 @@ export default function Project() {
                 {
                     project.carrImages.map((link, index) => 
                         <SwiperSlide key={"slide-" + index}>
-                            <div style={{"backgroundImage": "url('" + link + "')"}} ></div>
+                            <div
+                            style={{
+                                backgroundImage: "url('" + link + "')",
+                                backgroundSize: project.backgroundFit,
+                                borderRadius: (project.backgroundFit === "contain") ? "10px" : "0"
+                            }}
+                            ></div>
                         </SwiperSlide>
                     )
                 }
@@ -105,7 +112,7 @@ export default function Project() {
                             <button className="radialButton active">Download CV</button>
                         </a>
 
-                        <a href="/#Contact">
+                        <a href="/#Contact" onClick={() => sessionStorage.setItem('navTo', "Contact")}>
                             <button className="radialButton active">Contact</button>
                         </a>
                     </div>

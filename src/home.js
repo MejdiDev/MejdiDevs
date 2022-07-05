@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-
 import './styles/pages/index.css';
 
 import { NavBar } from './components/navbar';
@@ -8,6 +7,8 @@ import { Loader } from './components/loader';
 import { Footer } from './components/footer';
 
 import emailjs from '@emailjs/browser';
+import { Link } from 'react-router-dom';
+
 import { collection, getDocs } from 'firebase/firestore';
 import { db } from './firebase.config';
 
@@ -21,6 +22,7 @@ import { useInView } from 'react-intersection-observer';
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Navigation, Autoplay } from "swiper";
+
 
 import "swiper/css";
 import "swiper/css/pagination";
@@ -40,7 +42,16 @@ const Label = props => {
 
 const JobEntry = props => {
     const openEntry = () => {
-        document.querySelector('[entrynum="' + props.entryNum + '"].jobEntry').classList.toggle('open');
+        const jobEntry = document.querySelector('[entrynum="' + props.entryNum + '"].jobEntry');
+
+        const topHeight = document.querySelector('[entrynum="' + props.entryNum + '"].jobEntry #collData').scrollHeight ;
+        const descHeight = document.querySelector('[entrynum="' + props.entryNum + '"].jobEntry #description p').scrollHeight + 25;
+        const wrapHeight = topHeight + descHeight;
+
+        if(!jobEntry.classList.contains("open")) jobEntry.style.height = String(wrapHeight) + "px";
+        else jobEntry.removeAttribute("style");
+        
+        jobEntry.classList.toggle('open');
     }
 
     return (
@@ -68,7 +79,9 @@ const JobEntry = props => {
                 </div>
             </div>
 
-            <div id="description">{props.description}</div>
+            <div id="description">
+                <p>{props.description}</p>
+            </div>
         </div>
     )
 }
@@ -123,7 +136,7 @@ export default function Home() {
     const updateSkills = (entry, buttonNum) => {
         setTechsShown(entry);
 
-        document.querySelectorAll('#skillsWrapper #cellWrapper div').forEach(cell => cell.style.transitionDelay = "0s")
+        document.querySelectorAll('#skillsWrapper #cellWrapper div').forEach(cell => cell.style.transitionDelay = "0s");
 
         document.querySelectorAll('#details button').forEach((button, index) => {
             if(index !== buttonNum) {
@@ -273,9 +286,12 @@ export default function Home() {
         );
 
         getDocs(projectsCollection)
-        .then(
-            data => setProjects(data.docs.map(doc => doc.data())[0].projects)
-        );
+        .then(data => {
+            let localProj = data.docs.map(doc => doc.data())[0].projects;
+            localProj.length = 7;
+
+            setProjects(localProj)
+        });
 
         getDocs(feedbacksCollection)
         .then(
@@ -285,6 +301,7 @@ export default function Home() {
                 setTimeout(() => {
                     setFeedbacks(cleanData);
                     setFeedsShown(cleanData.Clients);
+                    document.title = `MejdiDevs | Portfollio`;
                 }, 800);
             }
         );
@@ -430,22 +447,22 @@ export default function Home() {
                                 <h1>Web Development</h1>
 
                                 <svg id="pieChart" ref={chartRef} width="509" height="509" viewBox="0 0 509 533" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path className="pieSection" fill-rule="evenodd" clip-rule="evenodd" d="M105.864 166.743C90.349 192.417 81.4204 222.518 81.4204 254.705C81.4204 285.403 89.5427 314.205 103.755 339.078L254 252.434L105.864 166.743Z" fill="#7B61FF" fill-opacity="0.55"/>
-                                    <path className="pieSection" fill-rule="evenodd" clip-rule="evenodd" d="M409.52 344.052C425.081 317.469 434 286.526 434 253.5C434 220.672 425.187 189.902 409.799 163.427L253.294 253.681L409.52 344.052Z" fill="#308021"/>
-                                    <path className="pieSection" fill-rule="evenodd" clip-rule="evenodd" d="M71.3035 359.633C89.2966 391.422 115.851 418.906 149.916 438.269C183.275 457.229 219.64 466.017 255.427 465.618L254.096 252.651L71.3035 359.633Z" fill="#43A5E3" fill-opacity="0.8"/>
-                                    <path className="pieSection" fill-rule="evenodd" clip-rule="evenodd" d="M257.021 63.2741C224.365 62.8836 191.175 70.8871 160.733 88.1878C130.854 105.168 107.315 129.007 90.9703 156.6L255.57 253.241L257.021 63.2741Z" fill="#FF7070" fill-opacity="0.7"/>
-                                    <path className="pieSection" fill-rule="evenodd" clip-rule="evenodd" d="M254.666 432.025C284.387 431.785 314.455 424.084 342.033 408.162C371.039 391.415 393.546 367.736 408.67 340.424L254.816 251.495L254.666 432.025Z" fill="#FF7070" fill-opacity="0.5"/>
-                                    <path className="pieSection" fill-rule="evenodd" clip-rule="evenodd" d="M394.878 172.69C381.095 148.296 360.81 127.155 334.79 112.132C310.138 97.8996 283.304 90.8706 256.725 90.3921L256.645 252.345L394.878 172.69Z" fill="#C4C4C4" fill-opacity="0.8"/>
+                                    <path className="pieSection" fillRule="evenodd" clipRule="evenodd" d="M105.864 166.743C90.349 192.417 81.4204 222.518 81.4204 254.705C81.4204 285.403 89.5427 314.205 103.755 339.078L254 252.434L105.864 166.743Z" fill="#7B61FF" fillOpacity="0.55"/>
+                                    <path className="pieSection" fillRule="evenodd" clipRule="evenodd" d="M409.52 344.052C425.081 317.469 434 286.526 434 253.5C434 220.672 425.187 189.902 409.799 163.427L253.294 253.681L409.52 344.052Z" fill="#308021"/>
+                                    <path className="pieSection" fillRule="evenodd" clipRule="evenodd" d="M71.3035 359.633C89.2966 391.422 115.851 418.906 149.916 438.269C183.275 457.229 219.64 466.017 255.427 465.618L254.096 252.651L71.3035 359.633Z" fill="#43A5E3" fillOpacity="0.8"/>
+                                    <path className="pieSection" fillRule="evenodd" clipRule="evenodd" d="M257.021 63.2741C224.365 62.8836 191.175 70.8871 160.733 88.1878C130.854 105.168 107.315 129.007 90.9703 156.6L255.57 253.241L257.021 63.2741Z" fill="#FF7070" fillOpacity="0.7"/>
+                                    <path className="pieSection" fillRule="evenodd" clipRule="evenodd" d="M254.666 432.025C284.387 431.785 314.455 424.084 342.033 408.162C371.039 391.415 393.546 367.736 408.67 340.424L254.816 251.495L254.666 432.025Z" fill="#FF7070" fillOpacity="0.5"/>
+                                    <path className="pieSection" fillRule="evenodd" clipRule="evenodd" d="M394.878 172.69C381.095 148.296 360.81 127.155 334.79 112.132C310.138 97.8996 283.304 90.8706 256.725 90.3921L256.645 252.345L394.878 172.69Z" fill="#C4C4C4" fillOpacity="0.8"/>
                                     
-                                    <line x1="255.5" y1="4.70227" x2="255.5" y2="503.369" stroke="#C5C5D0" stroke-width="3"/>
-                                    <line x1="37.917" y1="377.403" x2="469.775" y2="128.07" stroke="#C5C5D0" stroke-width="3"/>
-                                    <line x1="39.417" y1="128.07" x2="471.275" y2="377.403" stroke="#C5C5D0" stroke-width="3"/>
+                                    <line x1="255.5" y1="4.70227" x2="255.5" y2="503.369" stroke="#C5C5D0" strokeWidth="3"/>
+                                    <line x1="37.917" y1="377.403" x2="469.775" y2="128.07" stroke="#C5C5D0" strokeWidth="3"/>
+                                    <line x1="39.417" y1="128.07" x2="471.275" y2="377.403" stroke="#C5C5D0" strokeWidth="3"/>
 
-                                    <circle cx="254" cy="254.036" r="200" stroke="#C5C5D0" stroke-width="3"/>
-                                    <circle cx="254" cy="254.036" r="50" stroke="#C5C5D0" stroke-width="3"/>
-                                    <circle cx="254" cy="254.036" r="100" stroke="#C5C5D0" stroke-width="3"/>
-                                    <circle cx="254" cy="254.036" r="150" stroke="#C5C5D0" stroke-width="3"/>
-                                    <circle cx="254" cy="254.036" r="250" stroke="#393939" stroke-width="8"/>
+                                    <circle cx="254" cy="254.036" r="200" stroke="#C5C5D0" strokeWidth="3"/>
+                                    <circle cx="254" cy="254.036" r="50" stroke="#C5C5D0" strokeWidth="3"/>
+                                    <circle cx="254" cy="254.036" r="100" stroke="#C5C5D0" strokeWidth="3"/>
+                                    <circle cx="254" cy="254.036" r="150" stroke="#C5C5D0" strokeWidth="3"/>
+                                    <circle cx="254" cy="254.036" r="250" stroke="#393939" strokeWidth="8"/>
                                 </svg>
 
                                 <div id="keys">
@@ -558,36 +575,25 @@ export default function Home() {
 
                         <div id="presWrapper">
                             <div id="presentation">
-                                <div
-                                    onClick={() => window.location.href = '/project?id=someId'}
-                                ></div>
-                                
-                                <div
-                                    onClick={() => window.location.href = '/project?id=devfinder'}
-                                ></div>
-
-                                <div
-                                    onClick={() => window.location.href = '/project?id=someId'}
-                                ></div>
-
-                                <div
-                                    onClick={() => window.location.href = '/project?id=someId'}
-                                ></div>
-
-                                <div
-                                    onClick={() => window.location.href = '/project?id=someId'}
-                                ></div>
-
-                                <div
-                                    onClick={() => window.location.href = '/project?id=someId'}
-                                ></div>
-
-                                <div
-                                    onClick={() => window.location.href = '/project?id=someId'}
-                                ></div>
+                            
+                                {
+                                    projects.map((project, index) =>
+                                        <Link
+                                            key={`project-${index}`}
+                                            style={{backgroundImage: `url(${project.image})`}}
+                                            to={`/project?id=${project.id}`}>
+                                        </Link>
+                                    )
+                                }
 
                             </div>
                         </div>
+
+                        <center>
+                            <Link to='/projects'>
+                                <h1>See More Projects ...</h1>
+                            </Link>
+                        </center>
 
                     </section>
                 </VisibilitySensor>
@@ -640,7 +646,7 @@ export default function Home() {
                             >
 
                                 {
-                                    feedbacks.Clients.map((feedback, index) =>
+                                    feedsShown.map((feedback, index) =>
                                         <SwiperSlide key={"feedback-" + index}>
                                             <FeedbackSlide
                                                 text={feedback.text}

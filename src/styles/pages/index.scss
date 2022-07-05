@@ -121,6 +121,7 @@ ul {
     img {
         position: absolute;
         width: 122.41px;
+        height: auto;
         margin-top: -60px;
         margin-left: -57px;
         z-index: -1;
@@ -710,31 +711,29 @@ body {
             transition: height 400ms;
             transition-timing-function: ease-in-out;
 
-            &.open {
-                height: 150px;
-
-                #description {
-                    visibility: visible !important;
-                    opacity: 1 !important;
-                    transition-duration: 100ms !important;
-                    transition-delay: 400ms !important;
-                }
+            &.open #description {
+                visibility: visible !important;
+                opacity: 1 !important;
+                transition-duration: 100ms !important;
+                transition-delay: 400ms !important;
             }
 
             #description {
                 visibility: hidden;
                 opacity: 0;
-                font-family: 'Spartan', sans-serif;
-                color: #FFFFFF;
-                font-size: 15px;
-                line-height: 24px;
-                margin-top: 5px;
                 transition-delay: 0s;
                 transition-duration: 0s;
                 height: 100%;
                 display: flex;
                 align-items: center;
                 margin-top: -5px;
+
+                p {
+                    font-family: 'Spartan', sans-serif;
+                    color: #FFFFFF;
+                    font-size: 15px !important;
+                    line-height: 24px;
+                }
             }
             
             #collData {
@@ -803,6 +802,13 @@ body {
 
 #ProjectsSection {
 
+    h1 {
+        font-family: 'Orbitron';
+        font-weight: 600;
+        margin-top: -30px;
+        font-size: 26px;
+    }
+
     #presentation {
         width: 1013px;
         height: 686px;
@@ -816,48 +822,36 @@ body {
         grid-template-columns: 270px 270px 270px;
         grid-gap: 43px;
         
-
-        div {
-            background: #2A2344;
-            box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-            border-radius: 10px;
-            cursor: pointer;
-
+        a {
             background-position: top;
             background-size: cover;
             background-repeat: no-repeat;
-
-            &:first-child { background-image: url('../assets/shortly.png') }
-
-            &:nth-child(2) { background-image: url('../assets/devfinder.png') }
+            border-radius: 10px;
+            box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+            background-color: #2A2344;
 
             &:nth-child(3) {
                 grid-column-start: 3;
                 grid-column-end: 5;
-                background-image: url('../assets/todo.png');
             }
 
             &:nth-child(4) {
                 grid-row-start: 2;
                 grid-row-end: 4;
-                background-image: url('../assets/trackini.jpg');
             }
 
             &:nth-child(5) {
                 grid-column-start: 2;
                 grid-column-end: 5;
-                background-image: url('../assets/saraha.png');
             }
 
             &:nth-child(6) {
                 width: 384px;
-                background-image: url('../assets/bkvax.png');
             }
 
             &:nth-child(7) {
                 margin-left: 114px;
                 width: 270px;
-                background-image: url('../assets/mejdiDevs.png');
             }
         }
     }
@@ -930,6 +924,7 @@ body {
             cursor: pointer;
             border-radius: 25px;
             width: 425px;
+            height: auto !important;
             
             backdrop-filter: blur(42px);
             background: linear-gradient(180deg, rgba(255, 255, 255, 0.4) 0.55%, rgba(255, 255, 255, 0) 100%);
@@ -1321,7 +1316,6 @@ footer { margin-top: -80px }
 
         .jobEntry {
             height: 60px;
-            &.open { height: 220px !important }
             
             #description { margin-top: 0 !important }
             h3 { font-size: 17px !important }
@@ -1334,7 +1328,7 @@ footer { margin-top: -80px }
         margin-bottom: 25px !important;
         gap: 20px !important;
 
-        div {
+        a {
             height: 140px !important;
             width: calc(50% - 10px) !important;
 
@@ -1584,7 +1578,7 @@ footer { margin-top: -80px }
         justify-content: space-between;
         align-items: flex-start;
 
-        div {
+        a {
             width: calc(50% - 22px);
             height: 40vh;
             margin: 0 !important;

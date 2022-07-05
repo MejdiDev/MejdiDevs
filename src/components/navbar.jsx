@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import '../styles/reuseable/navbar.css';
 
 const showMobileNav = () => {
@@ -14,10 +15,12 @@ const showMobileNav = () => {
 export const NavBar = props => {
     return (
         <nav>
-            <div className="logo" onClick={() => window.location.href = '/'}>
-                <h1>Mejdi</h1>
-                <h1>DEVS</h1>
-            </div>
+            <Link to="/">
+                <div className="logo">
+                    <h1>Mejdi</h1>
+                    <h1>DEVS</h1>
+                </div>
+            </Link>
 
             <ul>
                 <a onClick={() => props.isHome ? console.log("") : sessionStorage.setItem('navTo', "skills")} href="/#skills">

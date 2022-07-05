@@ -121,6 +121,7 @@ ul {
 .label img {
   position: absolute;
   width: 122.41px;
+  height: auto;
   margin-top: -60px;
   margin-left: -57px;
   z-index: -1;
@@ -969,10 +970,6 @@ body.hidden {
           transition-timing-function: ease-in-out;
 }
 
-#experienceSection #jobsWrapper .jobEntry.open {
-  height: 150px;
-}
-
 #experienceSection #jobsWrapper .jobEntry.open #description {
   visibility: visible !important;
   opacity: 1 !important;
@@ -985,11 +982,6 @@ body.hidden {
 #experienceSection #jobsWrapper .jobEntry #description {
   visibility: hidden;
   opacity: 0;
-  font-family: 'Spartan', sans-serif;
-  color: #FFFFFF;
-  font-size: 15px;
-  line-height: 24px;
-  margin-top: 5px;
   -webkit-transition-delay: 0s;
           transition-delay: 0s;
   -webkit-transition-duration: 0s;
@@ -1002,6 +994,13 @@ body.hidden {
       -ms-flex-align: center;
           align-items: center;
   margin-top: -5px;
+}
+
+#experienceSection #jobsWrapper .jobEntry #description p {
+  font-family: 'Spartan', sans-serif;
+  color: #FFFFFF;
+  font-size: 15px !important;
+  line-height: 24px;
 }
 
 #experienceSection #jobsWrapper .jobEntry #collData {
@@ -1092,6 +1091,13 @@ body.hidden {
   margin-right: 7px;
 }
 
+#ProjectsSection h1 {
+  font-family: 'Orbitron';
+  font-weight: 600;
+  margin-top: -30px;
+  font-size: 26px;
+}
+
 #ProjectsSection #presentation {
   width: 1013px;
   height: 686px;
@@ -1107,55 +1113,41 @@ body.hidden {
   grid-gap: 43px;
 }
 
-#ProjectsSection #presentation div {
-  background: #2A2344;
-  -webkit-box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-          box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  border-radius: 10px;
-  cursor: pointer;
+#ProjectsSection #presentation a {
   background-position: top;
   background-size: cover;
   background-repeat: no-repeat;
+  border-radius: 10px;
+  -webkit-box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+          box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  background-color: #2A2344;
 }
 
-#ProjectsSection #presentation div:first-child {
-  background-image: url("../assets/shortly.png");
-}
-
-#ProjectsSection #presentation div:nth-child(2) {
-  background-image: url("../assets/devfinder.png");
-}
-
-#ProjectsSection #presentation div:nth-child(3) {
+#ProjectsSection #presentation a:nth-child(3) {
   -ms-grid-column: 3;
       grid-column-start: 3;
   grid-column-end: 5;
-  background-image: url("../assets/todo.png");
 }
 
-#ProjectsSection #presentation div:nth-child(4) {
+#ProjectsSection #presentation a:nth-child(4) {
   -ms-grid-row: 2;
       grid-row-start: 2;
   grid-row-end: 4;
-  background-image: url("../assets/trackini.jpg");
 }
 
-#ProjectsSection #presentation div:nth-child(5) {
+#ProjectsSection #presentation a:nth-child(5) {
   -ms-grid-column: 2;
       grid-column-start: 2;
   grid-column-end: 5;
-  background-image: url("../assets/saraha.png");
 }
 
-#ProjectsSection #presentation div:nth-child(6) {
+#ProjectsSection #presentation a:nth-child(6) {
   width: 384px;
-  background-image: url("../assets/bkvax.png");
 }
 
-#ProjectsSection #presentation div:nth-child(7) {
+#ProjectsSection #presentation a:nth-child(7) {
   margin-left: 114px;
   width: 270px;
-  background-image: url("../assets/mejdiDevs.png");
 }
 
 #FeedbackSection {
@@ -1240,6 +1232,7 @@ body.hidden {
   cursor: pointer;
   border-radius: 25px;
   width: 425px;
+  height: auto !important;
   -webkit-backdrop-filter: blur(42px);
           backdrop-filter: blur(42px);
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0.55%, rgba(255, 255, 255, 0.4)), to(rgba(255, 255, 255, 0)));
@@ -1747,9 +1740,6 @@ footer {
   #experienceSection #jobsWrapper .jobEntry {
     height: 60px;
   }
-  #experienceSection #jobsWrapper .jobEntry.open {
-    height: 220px !important;
-  }
   #experienceSection #jobsWrapper .jobEntry #description {
     margin-top: 0 !important;
   }
@@ -1764,24 +1754,24 @@ footer {
     margin-bottom: 25px !important;
     gap: 20px !important;
   }
-  #ProjectsSection #presentation div {
+  #ProjectsSection #presentation a {
     height: 140px !important;
     width: calc(50% - 10px) !important;
   }
-  #ProjectsSection #presentation div:nth-child(4) {
+  #ProjectsSection #presentation a:nth-child(4) {
     height: 290px !important;
     width: calc(50% - 10px) !important;
   }
-  #ProjectsSection #presentation div:nth-child(6) {
+  #ProjectsSection #presentation a:nth-child(6) {
     height: 140px;
   }
-  #ProjectsSection #presentation div:nth-child(3) {
+  #ProjectsSection #presentation a:nth-child(3) {
     height: 140px !important;
     width: calc(50% - 20px) !important;
     margin-left: 5px !important;
     margin-top: -160px !important;
   }
-  #ProjectsSection #presentation div:nth-child(5) {
+  #ProjectsSection #presentation a:nth-child(5) {
     height: 200px !important;
   }
 }
@@ -2045,30 +2035,30 @@ footer {
         -ms-flex-align: start;
             align-items: flex-start;
   }
-  #ProjectsSection #presentation div {
+  #ProjectsSection #presentation a {
     width: calc(50% - 22px);
     height: 40vh;
     margin: 0 !important;
   }
-  #ProjectsSection #presentation div:nth-child(5) {
+  #ProjectsSection #presentation a:nth-child(5) {
     width: 100% !important;
   }
-  #ProjectsSection #presentation div:nth-child(4), #ProjectsSection #presentation div:nth-child(6) {
+  #ProjectsSection #presentation a:nth-child(4), #ProjectsSection #presentation a:nth-child(6) {
     width: calc(50% - 22px);
     height: 70vh;
   }
-  #ProjectsSection #presentation div:nth-child(3) {
+  #ProjectsSection #presentation a:nth-child(3) {
     -webkit-box-ordinal-group: 4;
         -ms-flex-order: 3;
             order: 3;
     width: 100%;
   }
-  #ProjectsSection #presentation div:nth-child(4) {
+  #ProjectsSection #presentation a:nth-child(4) {
     -webkit-box-ordinal-group: 2;
         -ms-flex-order: 1;
             order: 1;
   }
-  #ProjectsSection #presentation div:nth-child(7) {
+  #ProjectsSection #presentation a:nth-child(7) {
     display: none !important;
   }
 }
