@@ -8,6 +8,8 @@ import { Footer } from './components/footer';
 import { db } from './firebase.config.js';
 import { collection, getDocs, query, where } from 'firebase/firestore';
 
+import { useNavigate } from "react-router-dom";
+
 import './styles/pages/project.css';
 
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -19,6 +21,7 @@ import "swiper/css/navigation";
 import "swiper/css/autoplay";
 
 export default function Project() {
+    const navigate = useNavigate();
     const [project, setProject] = useState();
 
     const fetchData = async(id) => {
@@ -31,7 +34,7 @@ export default function Project() {
             )
         ).then(data => {
             const projectData = data.docs.map(doc => doc.data());
-            if(projectData.length === 0) window.location.href = "/";
+            if(projectData.length === 0) navigate(-1);
 
             setTimeout(() => setProject(projectData[0]) , 800);
             document.title = `MejdiDevs | ${projectData[0].title}`;
@@ -42,7 +45,7 @@ export default function Project() {
         const queryString = window.location.search;
         const urlParams = new URLSearchParams(queryString);
         const id = urlParams.get('id');
-        if(id === null) window.location.href = "/";
+        if(id === null) navigate(-1);
 
         fetchData(id);
     }, []);
@@ -81,6 +84,7 @@ export default function Project() {
                             style={{
                                 backgroundImage: "url('" + link + "')",
                                 backgroundSize: project.backgroundFit,
+                                backgroundPosition: (project.backgroundFit === "contain") ? "center" : "top",
                                 borderRadius: (project.backgroundFit === "contain") ? "10px" : "0"
                             }}
                             ></div>
@@ -91,6 +95,13 @@ export default function Project() {
             </Swiper>
 
             <div id="detailsWrapper">
+            <div id="tagsWrapper">
+                        {
+                            project.tags.map((tag, index) =>
+                                <div key={`tag-${index}`} className="tag">{ tag }</div>
+                            )
+                        }
+                    </div>
                 <div id="details">
                     <h1 id="title">{project.title}</h1>
 
@@ -101,8 +112,20 @@ export default function Project() {
                     <p>{project.about}</p>
 
                     <div id="smImgWrapper">
-                        <div style={{"backgroundImage": "url(" + project.smollImages[0] + ")"}}></div>
-                        <div style={{"backgroundImage": "url(" + project.smollImages[1] + ")"}}></div>
+                        <div
+                            style={{
+                                backgroundImage: "url(" + project.smollImages[0] + ")",
+                                backgroundPosition: (project.backgroundFit === "contain") ? "center" : "top",
+                                backgroundSize: project.backgroundFit
+                            }}
+                        ></div>
+                        <div
+                            style={{
+                                backgroundImage: "url(" + project.smollImages[1] + ")",
+                                backgroundPosition: (project.backgroundFit === "contain") ? "center" : "top",
+                                backgroundSize: project.backgroundFit,
+                            }}
+                        ></div>
                     </div>
 
                     <p>{project.description2}</p>
@@ -119,11 +142,7 @@ export default function Project() {
                 </div>
             </div>
             
-            <Footer
-                instagram="../footer-icons/instagram.svg"
-                twitter="../footer-icons/twitter.svg"
-                linkedin="../footer-icons/linkedin.svg"
-            />
+            <Footer />
         </div>
     );
 }

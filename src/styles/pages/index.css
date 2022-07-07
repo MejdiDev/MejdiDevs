@@ -1287,9 +1287,16 @@ body.hidden {
   margin-bottom: 10px;
 }
 
-#FeedbackSection #CarrWrapper .swiper-slide .feedbackWrapper #author img {
+#FeedbackSection #CarrWrapper .swiper-slide .feedbackWrapper #author #img {
+  width: 42px;
+  height: 42px;
   margin-right: 9.46px;
   margin-left: 18.5px;
+  border-radius: 50%;
+  background-color: #2A2344;
+  background-position: top;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 #FeedbackSection #CarrWrapper .swiper-slide .feedbackWrapper #author h3 {

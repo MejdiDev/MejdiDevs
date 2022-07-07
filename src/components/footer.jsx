@@ -14,15 +14,15 @@ export const Footer = props => {
 
             <div id="icons">
                 <a target="blank" href="https://www.instagram.com/mejdichennoufi/">
-                    <img src={props.instagram} alt="Instagram" />
+                    <img src="./footer-icons/instagram.svg" alt="Instagram" />
                 </a>
 
                 <a target="blank" href="https://twitter.com/mejdiDevs">
-                    <img src={props.twitter} alt="Twitter" />
+                    <img src="./footer-icons/twitter.svg" alt="Twitter" />
                 </a>
 
                 <a target="blank" href="https://www.linkedin.com/in/mejdi-chennoufi-505092212/">
-                    <img src={props.linkedin} alt="LinkedIn" />
+                    <img src="./footer-icons/linkedin.svg" alt="LinkedIn" />
                 </a>
             </div>
         </footer>

@@ -960,9 +960,17 @@ body {
                     align-items: center;
                     margin-bottom: 10px;
     
-                    img {
+                    #img {
+                        width: 42px;
+                        height: 42px;
                         margin-right: 9.46px;
                         margin-left: 18.5px;
+
+                        border-radius: 50%;
+                        background-color: #2A2344;
+                        background-position: top;
+                        background-size: cover;
+                        background-repeat: no-repeat;
                     }
     
                     h3 { font-size: 13px }

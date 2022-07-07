@@ -93,7 +93,10 @@ const FeedbackSlide = props => {
             <h3 id="quoteText">{props.text}</h3>
 
             <div id="author">
-                <img src={props.author.img} alt={props.author.name} />
+                <div
+                    id="img"
+                    style={{backgroundImage: `url(${props.author.img})`}}
+                ></div>
 
                 <div id="text">
                     <h3>{props.author.name}</h3>
@@ -743,11 +746,7 @@ export default function Home() {
                     </section>
                 </VisibilitySensor>
 
-            <Footer
-                instagram="./footer-icons/instagram.svg"
-                twitter="./footer-icons/twitter.svg"
-                linkedin="./footer-icons/linkedin.svg"
-            />
+            <Footer />
         </div>
     )
 }

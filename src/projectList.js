@@ -53,7 +53,7 @@ export default function ProjectList() {
 
             <MobileNavbar isHome={false} />
 
-            <div className="wrapper">
+            <div id="gridWrapper">
                 {
                     projects.map((project, index) => 
                     <Link
@@ -65,6 +65,8 @@ export default function ProjectList() {
                     )
                 }
             </div>
+
+            <Footer />
         </div>
     );
 }

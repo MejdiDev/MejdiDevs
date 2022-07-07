@@ -1,4 +1,4 @@
-#appWrapper, #homeAppWrapper {
+#appWrapper, #homeAppWrapper, #projectList {
   -webkit-animation: fadeIn ease 600ms;
           animation: fadeIn ease 600ms;
   -webkit-animation-iteration-count: 1;

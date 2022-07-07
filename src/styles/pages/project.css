@@ -61,15 +61,48 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#appWrapper #detailsWrapper #tagsWrapper {
+  width: 80%;
+  margin-top: 20px;
+  margin-bottom: -20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 20px;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+
+#appWrapper #detailsWrapper #tagsWrapper .tag {
+  color: #fff;
+  font-family: 'Rajdhani';
+  padding: 5px 10px;
+  font-size: 19px;
+  border: solid 1px #fff;
+  border-radius: 5px;
 }
 
 #appWrapper #detailsWrapper #details {
   width: 80%;
   font-family: 'Rajdhani';
-  color: #FFFFFF;
+  color: #fff;
 }
 
 #appWrapper #detailsWrapper #details #title {
@@ -99,6 +132,7 @@
   background-repeat: no-repeat;
   background-size: cover;
   background-position: top;
+  background-color: #2A2344;
 }
 
 #appWrapper #detailsWrapper #details #smImgWrapper div:first-child {
@@ -147,6 +181,9 @@
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center;
+  }
+  #appWrapper #detailsWrapper #tagsWrapper {
+    width: 90% !important;
   }
   #appWrapper #detailsWrapper #details {
     width: 90%;

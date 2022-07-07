@@ -2,11 +2,16 @@
   padding-left: 20px;
 }
 
-#projectList img {
-  height: 200px;
+#projectList nav {
+  margin-left: -10px !important;
 }
 
-#projectList .wrapper {
+#projectList footer {
+  margin-top: 200px;
+  margin-left: -20px;
+}
+
+#projectList #gridWrapper {
   margin-top: 40px;
   display: -ms-grid;
   display: grid;
@@ -14,10 +19,10 @@
       grid-template-columns: repeat(5, calc(20% - 20px));
   grid-auto-rows: 150px;
   gap: 20px;
-  grid-auto-flow: row dense;
+  grid-auto-flow: dense;
 }
 
-#projectList .wrapper a {
+#projectList #gridWrapper a {
   background-position: top;
   background-size: cover;
   background-repeat: no-repeat;
@@ -35,4 +40,36 @@
 #projectList .port {
   grid-column: span 0.5fr;
   grid-row: span 3;
+}
+
+@media only screen and (max-width: 1295px) {
+  #projectList #gridWrapper {
+    -ms-grid-columns: (calc(33.33% - 20px))[3];
+        grid-template-columns: repeat(3, calc(33.33% - 20px));
+    grid-auto-rows: 200px;
+  }
+}
+
+@media only screen and (max-width: 1035px) {
+  #projectList #gridWrapper {
+    -ms-grid-columns: (calc(50% - 20px))[2];
+        grid-template-columns: repeat(2, calc(50% - 20px));
+    grid-auto-rows: 250px;
+  }
+}
+
+@media only screen and (max-width: 812px) {
+  #projectList #gridWrapper {
+    -ms-grid-columns: (calc(50% - 20px))[2];
+        grid-template-columns: repeat(2, calc(50% - 20px));
+    grid-auto-rows: 150px;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  #projectList #gridWrapper {
+    -ms-grid-columns: (calc(50% - 20px))[2];
+        grid-template-columns: repeat(2, calc(50% - 20px));
+    grid-auto-rows: 100px;
+  }
 }
