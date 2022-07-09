@@ -1,3 +1,16 @@
+//Spartan
+@font-face {
+    font-family: "Spartan";
+    src: url("../fonts/Spartan-SemiBold.ttf");
+    font-weight: 600;
+}
+
+@font-face {
+    font-family: "Spartan";
+    src: url("../fonts/Spartan-Medium.ttf");
+    font-weight: 500;
+}
+
 ::-webkit-scrollbar {
     width: 0;
     background: transparent;
