@@ -709,18 +709,18 @@ body.hidden {
 }
 
 #skillsSection #main #chartWrapper #keys ul li:first-child div {
-  background: #FF7070;
-  border-color: #FF7070;
+  background: #8C424D;
+  border-color: #8C424D;
 }
 
 #skillsSection #main #chartWrapper #keys ul li:nth-child(2) div {
-  background: #C4C4C4;
-  border-color: #C4C4C4;
+  background: #FF7070;
+  border-color: #FF7070;
 }
 
 #skillsSection #main #chartWrapper #keys ul li:nth-child(3) div {
-  background: #FF7070;
-  border-color: #FF7070;
+  background: #C4C4C4;
+  border-color: #C4C4C4;
 }
 
 #skillsSection #main #chartWrapper #keys ul li:nth-child(4) div {
@@ -734,8 +734,8 @@ body.hidden {
 }
 
 #skillsSection #main #chartWrapper #keys ul li:nth-child(6) div {
-  background: #7B61FF;
-  border-color: #7B61FF;
+  background: #308021;
+  border-color: #308021;
 }
 
 #skillsSection #main #chartWrapper #keys ul li div {
@@ -1240,7 +1240,7 @@ body.hidden {
 }
 
 #FeedbackSection #CarrWrapper .swiper-slide .feedbackWrapper {
-  height: 100%;
+  height: calc(100% - 2px);
   width: calc(100% - 3px);
   border-radius: 25px;
   border: solid #ffff;
@@ -1367,6 +1367,12 @@ body.hidden {
 }
 
 #ContactSection form #success, #ContactSection form #error {
+  -webkit-animation: fadeOut;
+          animation: fadeOut;
+  -webkit-animation-delay: 2s;
+          animation-delay: 2s;
+  -webkit-animation-duration: 600ms;
+          animation-duration: 600ms;
   display: none;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
@@ -1594,6 +1600,24 @@ footer {
   }
 }
 
+@-webkit-keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
 @media only screen and (max-width: 1000px) {
   #home #rest .restCell {
     margin-bottom: 50px;
@@ -1755,6 +1779,11 @@ footer {
   }
   #experienceSection #jobsWrapper .jobEntry p {
     font-size: 10px !important;
+  }
+  #ProjectsSection h1 {
+    margin-top: -20px;
+    margin-bottom: -30px;
+    font-size: 22px !important;
   }
   #ProjectsSection #presentation {
     margin-top: 45px !important;

@@ -30,6 +30,7 @@ export default function ProjectList() {
     const [projects, setProjects] = useState();
 
     useEffect(() => {
+        document.title = `MejdiDevs | Loading...`;
         const projectsCollection = collection(db, 'HomeProjects');
 
         getDocs(projectsCollection)

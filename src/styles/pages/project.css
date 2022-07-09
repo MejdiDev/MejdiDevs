@@ -184,6 +184,10 @@
   }
   #appWrapper #detailsWrapper #tagsWrapper {
     width: 90% !important;
+    gap: 10px !important;
+  }
+  #appWrapper #detailsWrapper #tagsWrapper .tag {
+    font-size: 16px;
   }
   #appWrapper #detailsWrapper #details {
     width: 90%;

@@ -163,6 +163,10 @@ export default function Home() {
         if(firstName.trim() === "" || lastName.trim() === "" || email.trim() === "" || msg.trim() === "") {
             document.getElementById("error").innerText = "All areas must be filled !"
             document.getElementById("error").style.display = "flex";
+
+            setTimeout(() => {
+                document.getElementById("error").style.display = "none";
+            }, 2600);
             return
         }
 
@@ -179,6 +183,10 @@ export default function Home() {
             if(data.status !== 200) {
                 document.getElementById("error").innerText = "An error occured, try later !"
                 document.getElementById("error").style.display = "flex";
+
+                setTimeout(() => {
+                    document.getElementById("error").style.display = "none";
+                }, 2600);
                 return
             }
             
@@ -187,6 +195,9 @@ export default function Home() {
             setEmail("")
             setMsg("")
             document.getElementById("success").style.display = "flex";
+            setTimeout(() => {
+                document.getElementById("success").style.display = "none";
+            }, 2600);
         })
     }
 
@@ -269,6 +280,7 @@ export default function Home() {
     }, [skillsInView]);
 
     useEffect(() => {
+        document.title = `MejdiDevs | Loading...`;
         const skillsCollection = collection(db, 'Skills');
         const jobsCollection = collection(db, 'Technologies');
         const projectsCollection = collection(db, 'HomeProjects');
@@ -472,27 +484,27 @@ export default function Home() {
                                     <ul>
                                         <li>
                                             <div></div>
-                                            <p> Web Development </p>
+                                            <p> Mobile Developement </p>
+                                        </li>
+
+                                        <li>
+                                            <div></div>
+                                            <p> Soft Skills </p>
+                                        </li>
+
+                                        <li>
+                                            <div></div>
+                                            <p> Back-end Dev </p>
+                                        </li>
+
+                                        <li>
+                                            <div></div>
+                                            <p> Web Developement </p>
                                         </li>
 
                                         <li>
                                             <div></div>
                                             <p> Graphic Design </p>
-                                        </li>
-
-                                        <li>
-                                            <div></div>
-                                            <p> UI Design </p>
-                                        </li>
-
-                                        <li>
-                                            <div></div>
-                                            <p> Communication </p>
-                                        </li>
-
-                                        <li>
-                                            <div></div>
-                                            <p> Teaching </p>
                                         </li>
 
                                         <li>

@@ -163,7 +163,12 @@
         #detailsWrapper {
             display: flex;
             justify-content: center;
-            #tagsWrapper { width: 90% !important }
+            #tagsWrapper {
+                width: 90% !important;
+                gap: 10px !important;
+
+                .tag { font-size: 16px; }
+            }
 
             #details {
                 width: 90%;
