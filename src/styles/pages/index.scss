@@ -17,7 +17,7 @@
 }
 
 * {
-  -webkit-tap-highlight-color: rgba(0,0,0,0) !important;
+  -webkit-tap-highlight-color: transparent !important;
 }
 
 html {
@@ -127,6 +127,7 @@ ul {
 }
 
 .logo {
+    -webkit-tap-highlight-color: transparent !important;
     font-family: 'Orbitron', sans-serif;
     display: flex;
     flex-flow: row nowrap;

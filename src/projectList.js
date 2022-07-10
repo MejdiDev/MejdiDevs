@@ -39,7 +39,7 @@ export default function ProjectList() {
                 setProjects(
                     shuffleArray(data.docs.map(doc => doc.data())[0].projects));
                 document.title = `MejdiDevs | Projects`;
-            }, 800)
+            }, 700)
         );
     }, [])
 

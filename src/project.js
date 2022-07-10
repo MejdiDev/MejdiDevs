@@ -36,7 +36,7 @@ export default function Project() {
             const projectData = data.docs.map(doc => doc.data());
             if(projectData.length === 0) navigate(-1);
 
-            setTimeout(() => setProject(projectData[0]) , 800);
+            setTimeout(() => setProject(projectData[0]) , 700);
             document.title = `MejdiDevs | ${projectData[0].title}`;
         });
     }

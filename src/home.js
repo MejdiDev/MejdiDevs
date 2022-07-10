@@ -23,7 +23,6 @@ import { useInView } from 'react-intersection-observer';
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Navigation, Autoplay } from "swiper";
 
-
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
@@ -173,11 +172,13 @@ export default function Home() {
         document.getElementById("error").style.display = "none";
         document.getElementById("loaderOverlay").style.display = "flex";
 
-        emailjs.send('service_ii4knd2', 'template_9mw8xoo', {
+        emailjs.send(
+            process.env.REACT_APP_EMAIL_SERVICE,
+            process.env.REACT_APP_EMAIL_TEMP, {
             name: (firstName + " " + lastName),
             from_email: email,
             msg,
-        }, 'user_umz4PoLI7NcoxEC2FAxIC').then(data => {
+        }, process.env.REACT_APP_EMAIL_USER).then(data => {
             document.getElementById("loaderOverlay").style.display = "none";
             
             if(data.status !== 200) {
@@ -317,7 +318,7 @@ export default function Home() {
                     setFeedbacks(cleanData);
                     setFeedsShown(cleanData.Clients);
                     document.title = `MejdiDevs | Portfollio`;
-                }, 800);
+                }, 700);
             }
         );
     }, []);
@@ -394,9 +395,11 @@ export default function Home() {
                             <div className="circle"></div>
                         </div>
 
-                        <div id="sayHi">
-                            Say Hi 👋
-                        </div>
+                        <a href="/#Contact">
+                            <div id="sayHi">
+                                Say Hi 👋
+                            </div>
+                        </a>
                     </div>
 
                     <div id="text">
