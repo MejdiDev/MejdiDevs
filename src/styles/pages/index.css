@@ -1697,11 +1697,11 @@ footer {
     margin-left: 5.5vw !important;
   }
   #skillsSection #detailsWrapper #details #selector button {
-    width: calc(50% - 15px);
+    width: calc(50% - 5px);
     height: auto !important;
     font-size: 18px !important;
     margin: 0 !important;
-    padding: 10px 20px !important;
+    padding: 10px 0 !important;
     margin-bottom: 15px !important;
   }
   #skillsSection #detailsWrapper #details #selector button:nth-child(3) {
@@ -1747,7 +1747,6 @@ footer {
     margin-bottom: -40px !important;
   }
   #skillsSection #details #selector button {
-    width: auto !important;
     margin-bottom: 15px !important;
     border-radius: 15px;
   }

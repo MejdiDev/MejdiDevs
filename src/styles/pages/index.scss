@@ -1254,11 +1254,11 @@ footer { margin-top: -80px }
                 margin-left: 5.5vw !important;
 
                 button {
-                    width: calc(50% - 15px);
+                    width: calc(50% - 5px);
                     height: auto !important;
                     font-size: 18px !important;
                     margin: 0 !important;
-                    padding: 10px 20px !important;
+                    padding: 10px 0 !important;
                     margin-bottom: 15px !important;
                     
                     &:nth-child(3) {
@@ -1308,7 +1308,6 @@ footer { margin-top: -80px }
         width: 85vw !important;
         margin-bottom: -40px !important;
         button {
-            width: auto !important;
             margin-bottom: 15px !important;
             border-radius: 15px;
 
