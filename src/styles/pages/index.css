@@ -1738,31 +1738,6 @@ footer {
     margin-bottom: -30px;
     font-size: 22px !important;
   }
-  #ProjectsSection #presentation {
-    margin-top: 45px !important;
-    margin-bottom: 25px !important;
-    gap: 20px !important;
-  }
-  #ProjectsSection #presentation a {
-    height: 140px !important;
-    width: calc(50% - 10px) !important;
-  }
-  #ProjectsSection #presentation a:nth-child(4) {
-    height: 290px !important;
-    width: calc(50% - 10px) !important;
-  }
-  #ProjectsSection #presentation a:nth-child(6) {
-    height: 140px;
-  }
-  #ProjectsSection #presentation a:nth-child(3) {
-    height: 140px !important;
-    width: calc(50% - 20px) !important;
-    margin-left: 5px !important;
-    margin-top: -160px !important;
-  }
-  #ProjectsSection #presentation a:nth-child(5) {
-    height: 200px !important;
-  }
 }
 
 @media only screen and (max-width: 580px) {
@@ -2008,47 +1983,38 @@ footer {
     margin-bottom: 10px !important;
   }
   #ProjectsSection #presentation {
+    padding-right: 15px !important;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    height: auto !important;
     width: 90vw;
-    height: 100%;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-        -ms-flex-flow: row wrap;
-            flex-flow: row wrap;
-    -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-            justify-content: space-between;
-    -webkit-box-align: start;
-        -ms-flex-align: start;
-            align-items: flex-start;
+    -ms-grid-columns: (50%)[2];
+        grid-template-columns: repeat(2, 50%);
+    -ms-grid-rows: 200px 150px 200px (150px)[2];
+        grid-template-rows: 200px 150px 200px repeat(2, 150px);
+    gap: 20px;
+    grid-auto-flow: dense;
   }
   #ProjectsSection #presentation a {
-    width: calc(50% - 22px);
-    height: 40vh;
     margin: 0 !important;
-  }
-  #ProjectsSection #presentation a:nth-child(5) {
-    width: 100% !important;
-  }
-  #ProjectsSection #presentation a:nth-child(4), #ProjectsSection #presentation a:nth-child(6) {
-    width: calc(50% - 22px);
-    height: 70vh;
-  }
-  #ProjectsSection #presentation a:nth-child(3) {
-    -webkit-box-ordinal-group: 4;
-        -ms-flex-order: 3;
-            order: 3;
-    width: 100%;
+    width: auto !important;
+    grid-row: span 1 !important;
   }
   #ProjectsSection #presentation a:nth-child(4) {
-    -webkit-box-ordinal-group: 2;
-        -ms-flex-order: 1;
-            order: 1;
+    grid-row: span 2 !important;
   }
-  #ProjectsSection #presentation a:nth-child(7) {
-    display: none !important;
+  #ProjectsSection #presentation a:nth-child(5), #ProjectsSection #presentation a:nth-child(3) {
+    grid-column: span 2 !important;
+  }
+  #ProjectsSection #presentation a:nth-child(5) {
+    -ms-grid-row: 3 !important;
+    -ms-grid-row-span: 1 !important;
+    grid-row: 3 / span 1 !important;
+  }
+  #ProjectsSection #presentation a:nth-child(3) {
+    -webkit-box-ordinal-group: -4 !important;
+        -ms-flex-order: -5 !important;
+            order: -5 !important;
   }
 }
 
