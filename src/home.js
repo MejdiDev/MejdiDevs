@@ -265,7 +265,7 @@ export default function Home() {
     }, [cell3InView]);
 
     const [ chartRef, chartInView ] = useInView({ threshold: 0.8 });
-    const [ skillsRef, skillsInView ] = useInView({ threshold: 0.95 });
+    const [ skillsRef, skillsInView ] = useInView({ threshold: 0.7 });
 
     useEffect(() => {
         const pieChart = document.getElementById('pieChart');
