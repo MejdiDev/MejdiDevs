@@ -171,7 +171,7 @@ body {
 #scroll {
     position: fixed;
     right: 30px;
-    top: 230px;
+    top: calc(50% - 172.5px);
     display: flex;
     flex-flow: row-reverse nowrap;
     align-items: flex-end;

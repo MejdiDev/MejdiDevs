@@ -205,7 +205,7 @@ body.hidden {
 #scroll {
   position: fixed;
   right: 30px;
-  top: 230px;
+  top: calc(50% - 172.5px);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
