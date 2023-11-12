@@ -434,7 +434,7 @@ export default function Home() {
 
                             <div ref={cell2Ref} className="restCell">
                                 <BsFillPersonFill className="icon" />
-                                <h3>0 Satisfied <br/>+ Clients</h3>
+                                <h3>0+ Satisfied <br/> Clients</h3>
                             </div>
 
                             <div ref={cell3Ref} className="restCell">
