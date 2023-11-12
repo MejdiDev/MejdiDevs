@@ -233,7 +233,7 @@ export default function Home() {
         if(cell1InView && !cell1Counted) {
             setCell1Counted(true);
             countUp(
-                21,
+                42,
                 document.querySelector('.restCell:first-child h3'),
                 0,
                 70
@@ -245,7 +245,7 @@ export default function Home() {
         if(cell2InView && !cell2Counted) {
             setCell2Counted(true);
             countUp(
-                15,
+                30,
                 document.querySelector('.restCell:nth-child(2) h3'),
                 0,
                 70
@@ -257,7 +257,7 @@ export default function Home() {
         if(cell3InView && !cell3Counted) {
             setCell3Counted(true);
             countUp(
-                2,
+                3,
                 document.querySelector('.restCell:nth-child(3) h3'),
                 1,
                 300
